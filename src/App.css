@@ -1,0 +1,11 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  /* Layout container
+  .app-container {
+    display: flex;
+    min-height: 100vh; /* Set minimum height for full viewport */
+  /* } */

@@ -1,19 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Login  from "./Components/LoginSignup/Login"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from "./Components/LoginSignup/Login"
 import Signup from './Components/LoginSignup/Signup';
-import TaskManager from './Components/Home/TaskManager';
+// import { useEffect, useState } from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import Tasks from './Components/Tasks/Tasks';
 function App() {
   return (
     <>
       <Router>
-        <h1>todo application</h1>
+        <Navbar />
         <Routes>
-          <Route path='/' element={<TaskManager />} />
+          <Route path='/' element={<Tasks />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>
-
       </Router>
     </>
   );

@@ -17,6 +17,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // const token  = localStorage.getItem("token");
     try {
       const response = await fetch("http://localhost:5000/api/user/login", {
         method: "POST",
@@ -30,7 +31,7 @@ const Login = () => {
       console.log(responseData);
 
       if (response.ok) {
-        // localStorage.setItem("token", responseData.token);
+        localStorage.setItem("token", responseData.token);
         console.log("Login successful");
 
         navigate("/");
@@ -39,7 +40,7 @@ const Login = () => {
           responseData.error || "Login failed. Please try again.";
         console.log(errorMessage);
         // alert("user not existed")
-        navigate('/signup')
+        navigate("/signup");
       }
     } catch (error) {
       console.log(error);

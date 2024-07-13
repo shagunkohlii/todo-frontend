@@ -37,7 +37,7 @@ const Signup = () => {
       console.log(responseData);
 
       if (responseData) {
-        // localStorage.setItem("Auth-token", responseData.token);
+        // localStorage.setItem("token", responseData.token);
         navigate("/Login");
         alert("User created");
       } else {
