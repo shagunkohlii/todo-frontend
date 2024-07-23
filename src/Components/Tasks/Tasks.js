@@ -112,7 +112,7 @@ const Tasks = () => {
     const fetchTasks = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.get('http://localhost:5000/api/task/getTasks', {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/task/getTasks`, {
                 headers: { "token": token },
             });
             setTasks(response.data);
@@ -125,7 +125,7 @@ const Tasks = () => {
         e.preventDefault();
         const token = localStorage.getItem("token");
         try {
-            const response = await axios.post('http://localhost:5000/api/task/addTask',
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/task/addTask`,
                 { taskName, description },
                 { headers: { "token": token } }
             );
@@ -141,7 +141,7 @@ const Tasks = () => {
     const deleteTask = async (taskId) => {
         const token = localStorage.getItem("token");
         try {
-            await axios.delete('http://localhost:5000/api/task/deleteTask', {
+            await axios.delete(`${process.env.REACT_APP_BASE_URL}/api/task/deleteTask`, {
                 headers: { "token": token },
                 data: { taskId }
             });
@@ -154,7 +154,7 @@ const Tasks = () => {
     const updateTask = async (taskId, newTaskName, newDescription) => {
         const token = localStorage.getItem("token");
         try {
-            const response = await axios.put('http://localhost:5000/api/task/updateTask',
+            const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/api/task/updateTask`,
                 { taskId, taskName: newTaskName, description: newDescription },
                 { headers: { "token": token } }
             );
