@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Tasks.css';
+import { IoClose } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
+
 
 const Task = ({ task, onDelete, onUpdate }) => (
     <div className="task-item" onClick={() => onUpdate(task)}>
@@ -15,10 +18,10 @@ const Task = ({ task, onDelete, onUpdate }) => (
                 onDelete(task._id);
             }}
         >
-            X
+            <IoClose style={{ fontSize: "1rem" }} />
         </button>
     </div>
-);
+)
 
 const TaskPopup = ({ task, onClose, onUpdate }) => {
     const [taskName, setTaskName] = useState(task.taskName);
@@ -157,6 +160,7 @@ const Tasks = () => {
             );
             setTasks(tasks.map((task) => task._id === taskId ? response.data.task : task));
             setEditingTask(null);
+            setEditingTask(null);
         } catch (err) {
             console.error('Error updating task:', err);
         }
@@ -169,7 +173,7 @@ const Tasks = () => {
     return (
         <div className="app-container">
             <button className="add-task-btn" onClick={() => setIsAddingTask(true)}>
-             Add Task
+                Task <IoMdAdd />
             </button>
             <div className="tasks-container">
                 <h1>Tasks</h1>

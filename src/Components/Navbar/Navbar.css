@@ -7,8 +7,14 @@
   background-color: #333;
   color: white;
 }
+.navbar-logo:hover{
+scale: 1.1;
+}
 
 .navbar-logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   text-decoration: none;
   font-size: 24px;
@@ -34,27 +40,11 @@
 .navbar-user-dropdown span {
   cursor: pointer;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 100px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.nav-btn{
+background: none;
 }
 
-.dropdown-content button {
-  color: black;
-  padding: 10px 16px;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.navbar-user-dropdown:hover .dropdown-content {
-  display: block;
+.nav-btn:hover{
+background: none;
+scale: 1.1;
 }

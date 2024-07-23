@@ -1,46 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check if user is logged in
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoggedIn(true);
-
-      setUsername('User123'); 
-    }
-  }, []);
-
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    setUsername('');
-    navigate('/login'); // Redirect to login page
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">Logo</Link>
+        <Link to="/">
+          <img
+            src="https://img.icons8.com/?size=25&id=f9MbZqpEUKcQ&format=png&color=ffffff" alt=""
+          />
+          Todoist
+        </Link>
       </div>
       <div className="navbar-links">
-        {isLoggedIn ? (
-          <div className="navbar-user-dropdown">
-            <span>{username}</span>
-            <div className="dropdown-content">
-              <button onClick={handleLogout}>Logout</button>
-            </div>
-          </div>
+        {localStorage.getItem("token") ? (
+          <button onClick={handleLogout} className="nav-btn">
+            Logout
+          </button>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/login" className="nav-btn">
+              Login
+            </Link>
+            <Link to="/signup" className="nav-btn">
+              Signup
+            </Link>
           </>
         )}
       </div>
