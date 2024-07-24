@@ -1,10 +1,11 @@
 /* Navbar.css */
 .navbar {
+  background: linear-gradient(to right, #3490dc, #1e3a8a);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
   color: white;
 }
 .navbar-logo:hover{
@@ -47,4 +48,13 @@ background: none;
 .nav-btn:hover{
 background: none;
 scale: 1.1;
+}
+
+@media screen and (max-width: 480px) {
+  .navbar{
+    background: linear-gradient(to right, #3490dc, #1e3a8a);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 10px 10px 0;
+    border-radius: 20px;
+  }
 }
